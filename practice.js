@@ -57,3 +57,25 @@ function shiftCharCode(code, shift, min, max) {
   }
   return String.fromCharCode(shiftedCode);
 }
+
+export function analyzeArray(arr) {
+    const mean = findMean(arr);
+    const smallest = Math.min(...arr);
+    const largest = Math.max(...arr);
+
+    const resultObject = {
+        average: mean,
+        min: smallest,
+        max: largest,
+        length: arr.length
+    };
+
+
+    return resultObject;
+}
+
+function findMean(arr) {
+    if (arr.length === 0) return 0;
+    const sum = arr.reduce((acc, val) => acc + val, 0);
+    return sum / arr.length;
+}
